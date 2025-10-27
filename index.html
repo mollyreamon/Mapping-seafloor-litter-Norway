@@ -3,77 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Sea Litter Maps</title>
-
+  <title>Interactive Seafloor Litter Visualisations</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background-color: #f9fafb;
       margin: 0;
-      padding: 0;
-      background-color: #f7f9fb;
+      padding: 2rem;
+      color: #333;
     }
-
-    header {
-      background-color: #1f77b4;
-      color: white;
-      padding: 15px;
+    h1 {
       text-align: center;
-      font-size: 1.5em;
-      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #004d66;
     }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 20px;
+    h2 {
+      margin-top: 2.5rem;
+      color: #006680;
     }
-
-    label {
-      font-size: 1.1em;
-      margin-bottom: 10px;
+    .section {
+      max-width: 800px;
+      margin: 0 auto;
     }
-
-    select {
-      font-size: 1em;
-      padding: 6px 10px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
-
-    iframe {
-      width: 90%;
-      height: 80vh;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    .card {
+      background-color: white;
+      padding: 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .card a {
+      text-decoration: none;
+      color: #006680;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #777;
+      font-size: 0.9rem;
     }
   </style>
 </head>
-
 <body>
-  <header>Interactive Sea Litter Maps</header>
+  <h1>Interactive Seafloor Litter Visualisations</h1>
 
-  <div class="container">
-    <label for="mapSelect">Choose a map to view:</label>
-    <select id="mapSelect">
-      <option value="all_areas.html">All Areas</option>
-      <option value="Kristiansand.html">Kristiansand</option>
-      <option value="Tromlingene.html">Tromlingene</option>
-      <option value="Galtesund.html">Galtesund</option>
-    </select>
-
-    <iframe id="mapFrame" src="all_areas.html"></iframe>
+  <div class="section">
+    <h2> Seafloor Litter Maps</h2>
+    <div class="grid">
+      <div class="card"><a href="all_areas.html" target="_blank">All Areas</a></div>
+      <div class="card"><a href="Tromlingene.html" target="_blank">Tromlingene</a></div>
+      <div class="card"><a href="Galtesund.html" target="_blank">Galtesund</a></div>
+      <div class="card"><a href="Kristiansand.html" target="_blank">Kristiansand</a></div>
+    </div>
   </div>
 
-  <script>
-    const mapSelect = document.getElementById("mapSelect");
-    const mapFrame = document.getElementById("mapFrame");
+  <div class="section">
+    <h2> Seafloor Litter: Category & Subcategory Composition </h2>
+    <div class="grid">
+      <div class="card"><a href="plotly_Tromlingene.html" target="_blank">Tromlingene</a></div>
+      <div class="card"><a href="plotly_Galtesund.html" target="_blank">Galtesund</a></div>
+      <div class="card"><a href="plotly_Kristiansand.html" target="_blank">Kristiansand</a></div>
+    </div>
+  </div>
 
-    mapSelect.addEventListener("change", function() {
-      mapFrame.src = this.value;
-    });
-  </script>
+  <footer>
+    © 2025 Seafloor Litter Project – Interactive Data Visualisations
+  </footer>
 </body>
 </html>
