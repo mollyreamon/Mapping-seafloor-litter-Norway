@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Sea Litter Maps</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fb;
+    }
+
+    header {
+      background-color: #1f77b4;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+
+    label {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    select {
+      font-size: 1em;
+      padding: 6px 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    iframe {
+      width: 90%;
+      height: 80vh;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <header>Interactive Sea Litter Maps</header>
+
+  <div class="container">
+    <label for="mapSelect">Choose a map to view:</label>
+    <select id="mapSelect">
+      <option value="all_areas.html">All Areas</option>
+      <option value="Kristiansand.html">Kristiansand</option>
+      <option value="Tromlingene.html">Tromlingene</option>
+      <option value="Galtesund.html">Galtesund</option>
+    </select>
+
+    <iframe id="mapFrame" src="all_areas.html"></iframe>
+  </div>
+
+  <script>
+    const mapSelect = document.getElementById("mapSelect");
+    const mapFrame = document.getElementById("mapFrame");
+
+    mapSelect.addEventListener("change", function() {
+      mapFrame.src = this.value;
+    });
+  </script>
+</body>
+</html>
